@@ -1,4 +1,4 @@
-\c
+\c test
 --
 -- PostgreSQL database dump
 --
