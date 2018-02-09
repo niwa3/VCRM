@@ -453,13 +453,6 @@ CREATE TRIGGER update_tri BEFORE UPDATE ON service_info FOR EACH ROW EXECUTE PRO
 
 
 --
--- Name: update_tri; Type: TRIGGER; Schema: public; Owner: testuser
---
-
-CREATE TRIGGER update_tri BEFORE UPDATE ON relationship FOR EACH ROW EXECUTE PROCEDURE set_update_time();
-
-
---
 -- Name: consumer_info_l_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: testuser
 --
 
@@ -473,38 +466,6 @@ ALTER TABLE ONLY customer_info
 
 ALTER TABLE ONLY device_info
     ADD CONSTRAINT device_info_c_id_fkey FOREIGN KEY (c_id) REFERENCES customer_info(id);
-
-
---
--- Name: relationship_d_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: testuser
---
-
-ALTER TABLE ONLY relationship
-    ADD CONSTRAINT relationship_d_id_fkey FOREIGN KEY (d_id) REFERENCES device_info(id);
-
-
---
--- Name: relationship_device_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: testuser
---
-
-ALTER TABLE ONLY relationship
-    ADD CONSTRAINT relationship_device_name_fkey FOREIGN KEY (device_name) REFERENCES device_info(device_name);
-
-
---
--- Name: relationship_s_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: testuser
---
-
-ALTER TABLE ONLY relationship
-    ADD CONSTRAINT relationship_s_id_fkey FOREIGN KEY (s_id) REFERENCES service_info(id);
-
-
---
--- Name: relationship_service_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: testuser
---
-
-ALTER TABLE ONLY relationship
-    ADD CONSTRAINT relationship_service_name_fkey FOREIGN KEY (service_name) REFERENCES service_info(service_name);
 
 
 --
