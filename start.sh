@@ -15,10 +15,10 @@ tspawn scaffold vender_info
 tspawn scaffold device_info
 tspawn scaffold service_info
 tspawn scaffold login_info
-cp -rf ../VCRM/controllers
-cp -rf ../VCRM/models
-cp -rf ../VCRM/views
-cp -rf ../VCRM/models
+cp -rf ../VCRM/controllers .
+cp -rf ../VCRM/models .
+cp -rf ../VCRM/views .
+cp -rf ../VCRM/models .
 qmake -r "CONFIG+=debug"
 make
 treefrog -d -e dev
