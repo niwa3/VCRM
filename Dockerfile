@@ -41,9 +41,9 @@ RUN apt-get update && \
 	mv /etc/postgresql/9.4/main/pg_hba.conf /etc/postgresql/9.4/main/pg_hba.conf.bak && \
 	sed -e "90s/peer/md5/g" /etc/postgresql/9.4/main/pg_hba.conf.bak > /etc/postgresql/9.4/main/pg_hba.conf
 
-COPY . /tmp/
+RUN mkdir /VCRM
 
-RUN git clone https://github.com/niwa3/VCRM.git
+COPY . /VCRM
 
 EXPOSE 8800
 CMD sh /VCRM/start.sh
