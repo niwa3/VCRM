@@ -5,10 +5,10 @@ su postgres -c "\
 psql -f createuser.sql;\
 psql -f createslavedb.sql;\
 "
-cd ..
+cd /
 tspawn new slave
-cd slave
-cp ../VCRM/config/database.ini ./config
+cd /slave
+cp /VCRM/config/database.ini /slave/config
 tspawn scaffold relationship
 tspawn scaffold customer_info
 tspawn scaffold vender_info
