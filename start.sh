@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd /VCRM
 service postgresql start
 su postgres -c "\
@@ -15,10 +15,10 @@ tspawn scaffold vender_info
 tspawn scaffold device_info
 tspawn scaffold service_info
 tspawn scaffold login_info
-cp -rf ../VCRM/controllers .
-cp -rf ../VCRM/models .
-cp -rf ../VCRM/views .
-cp -rf ../VCRM/models .
+cp -rf /VCRM/controllers /slave/controllers
+cp -rf /VCRM/models /slave/models
+cp -rf /VCRM/views /slave/views
+cp -rf /VCRM/helpers /slave/helpers
 qmake -r "CONFIG+=debug"
 make
 treefrog -d -e dev
